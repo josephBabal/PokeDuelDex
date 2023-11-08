@@ -1,0 +1,195 @@
+{
+  "normal": {
+    "attack": {
+      "double": [],
+      "half": ["rock", "steel"],
+      "zero": ["ghost"]
+    },
+    "defense": {
+      "half": [],
+      "double": ["fighting"],
+      "zero": ["ghost"]
+    }
+  },
+  "fire": {
+    "attack": {
+      "double": ["grass", "ice", "bug", "steel"],
+      "half": ["fire", "water", "rock", "dragon"],
+      "zero": []
+    },
+    "defense": {
+      "half": ["fire", "grass", "ice", "bug", "steel", "fairy"],
+      "double": ["water", "rock", "ground"],
+      "zero": []
+    }
+  },
+  "water": {
+    "attack": {
+      "double": ["fire", "ground", "rock"],
+      "half": ["water", "grass", "dragon"],
+      "zero": []
+    },
+    "defense": {
+      "half": ["fire", "water", "ice", "steel"],
+      "double": ["electric", "grass"],
+      "zero": []
+    }
+  },
+  "grass": {
+    "attack": {
+      "double": ["ground", "rock", "water"],
+      "half": ["flying", "poison", "bug", "steel", "fire", "grass", "dragon"],
+      "zero": []
+    },
+    "defense": {
+      "half": ["ground", "water", "grass", "electric"],
+      "double": ["flying", "poison", "bug", "fire", "ice"],
+      "zero": []
+    }
+  },
+  "bug": {
+    "attack": {
+      "double": ["grass", "psychic", "dark"],
+      "half": ["fighting", "flying", "poison", "ghost", "steel", "fire", "fairy"],
+      "zero": []
+    },
+    "defense": {
+      "half": ["fighting", "flying", "poison", "ghost", "fire", "fairy"],
+      "double": ["grass", "psychic", "dark"],
+      "zero": []
+    }
+  },
+  "ground": {
+    "attack": {
+      "double": ["fire", "electric", "poison", "rock", "steel"],
+      "half": ["grass", "bug"],
+      "zero": ["flying"]
+    },
+    "defense": {
+      "half": ["poison", "rock"],
+      "double": ["water", "grass", "ice"],
+      "zero": ["electric"]
+    }
+  },
+  "rock": {
+    "attack": {
+      "double": ["flying", "bug", "fire", "ice"],
+      "half": ["fighting", "ground", "steel"],
+      "zero": []
+    },
+    "defense": {
+      "half": ["normal", "flying", "poison", "fire"],
+      "double": ["water", "grass", "fighting", "ground", "steel"],
+      "zero": []
+    }
+  },
+  "electric": {
+    "attack": {
+      "double": ["water", "flying"],
+      "half": ["electric", "grass", "dragon"],
+      "zero": ["ground"]
+    },
+    "defense": {
+      "half": ["electric", "flying", "steel"],
+      "double": ["ground"],
+      "zero": []
+    }
+  },
+  "steel": {
+    "attack": {
+      "double": ["ice", "rock", "fairy"],
+      "half": ["fire", "water", "electric", "steel"],
+      "zero": []
+    },
+    "defense": {
+      "half": ["normal", "flying", "rock", "bug", "steel", "grass", "psychic", "ice", "dragon", "fairy"],
+      "double": ["fighting", "ground", "fire"],
+      "zero": ["poison"]
+    }
+  },
+  "poison": {
+    "attack": {
+      "double": ["grass", "fairy"],
+      "half": ["poison", "ground", "rock", "ghost"],
+      "zero": ["steel"]
+    },
+    "defense": {
+      "half": ["fighting", "poison", "bug", "grass", "fairy"],
+      "double": ["ground", "psychic"],
+      "zero": []
+    }
+  },
+  "psychic": {
+    "attack": {
+      "double": ["fighting", "poison"],
+      "half": ["psychic", "steel"],
+      "zero": ["dark"]
+    },
+    "defense": {
+      "half": ["fighting", "psychic"],
+      "double": ["bug", "ghost", "dark"],
+      "zero": []
+    }
+  },
+  
+  "ice": {
+    "attack": {
+      "double": ["grass", "ground", "flying", "dragon"],
+      "half": ["fire", "water", "ice", "steel"],
+      "zero": []
+    },
+    "defense": {
+      "half": ["ice"],
+      "double": ["fighting", "rock", "steel", "fire"],
+      "zero": []
+    }
+  },
+  "dragon": {
+    "attack": {
+      "double": ["dragon"],
+      "half": ["steel"],
+      "zero": ["fairy"]
+    },
+    "defense": {
+      "half": ["fire", "water", "grass", "electric"],
+      "double": ["ice", "dragon", "fairy"],
+      "zero": []
+    }
+  },
+  "ghost": {
+    "attack": {
+      "double": ["ghost", "psychic"],
+      "half": ["dark"],
+      "zero": ["normal"]
+    },
+    "defense": {
+      "half": ["poison", "bug"],
+      "double": ["ghost", "dark"],
+      "zero": ["normal", "fighting"]
+    }
+  },
+  "dark": {
+    "attack": {
+      "double": ["psychic", "ghost"],
+      "half": ["fighting", "dark", "fairy"],
+      "zero": []
+    },
+    "defense": {
+      "half": ["ghost", "dark"],
+      "double": ["fighting", "bug", "fairy"],
+      "zero": ["psychic"]
+    }
+  },
+  "fairy": {
+    "attack": {
+      "double": ["fighting", "dragon", "dark"],
+      "half": ["fire", "poison", "steel"],
+      "zero": []
+    },
+    "defense": {
+      "double": ["poison", "steel"],
+      "half": ["fighting", "bug", "dark"],
+      "zero": ["dragon"]
+    }
+  }
+}

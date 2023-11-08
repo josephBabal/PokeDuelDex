@@ -1,0 +1,40 @@
+
+
+.categoryHeading {
+  margin-block: 1em;
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
+
+.flexData {
+  display: flex;
+  flex-direction: column;
+  // margin-inline: 0.5em;
+  gap: 1em;
+}
+
+.categoryWrap {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 2em;
+  max-width: 400px;
+
+  & > :first-child {
+    color: rgb(80, 80, 80);
+    font-weight: bolder;
+    font-size: 0.9rem;
+  }
+  & > :nth-child(2) {
+    font-size: 1rem;
+  }
+}
+
+.hiddenAbility {
+  font-size: 0.8rem;
+}
+
+
+.mb1 {
+  margin-bottom: 0.25em;
+}

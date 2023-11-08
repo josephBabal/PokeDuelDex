@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.statWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // grid-template-columns: 0.25fr 0.25fr 1fr 0.25fr 0.25fr;
+  gap: 0.2em;
+  max-width: 400px;
+  .statName {
+    // max-width: max-content;
+    color: rgb(80, 80, 80);
+    font-weight: bolder;
+    font-size: 0.9rem;
+    // margin-right: 0.5em;
+    // border: 1px solid red;
+    // min-width: 12ch;
+  }
+  
+  .skillBar {
+    width: 100%;
+    .skillPer {
+      border-radius: 0.5em;
+      height: 0.25em;
+      margin-left: 1em;
+      // background: red;
+      // width: 20%;
+      // border: 2px solid red;
+    }
+  }
+
+  .max {
+    // margin-left: 0.5em;
+  }
+
+  .minTotal,
+  .maxTotal {
+    margin-left: 0.5em;
+    color: rgb(80, 80, 80);
+    font-weight: bolder;
+    font-size: 0.8rem;
+  }
+}

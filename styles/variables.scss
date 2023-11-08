@@ -1,0 +1,160 @@
+$primary-color: white;
+$text-color: blue;
+
+$primary-red: #F61414;
+
+$primary-btn-bg: #F61414;
+$primary-btn-txt: white;
+
+$signupBg: linear-gradient(360deg, hsla(206, 66%, 58%, 1) 2%, hsla(172, 100%, 50%, 1) 98%);
+
+// * invalid
+$invalidRed: #cc0000;
+
+
+// * font-size
+$fs-1p: 1.0rem;
+$fs-1p1: 1.1rem;
+$fs-1p2: 1.2rem;
+$fs-1p3: 1.3rem;
+
+
+// $pokemon-img-big: 100px;
+$pokemon-img-big: 120px;
+$pokemon-img-small: 100px;
+
+
+// * border-radius
+$pill-radius: 500px;
+
+// * border 
+$card-border: 1px solid #bdbdbd;
+
+// * colors
+// $link-color: #DF5D36;
+// $link-color: #ff5722;
+$action-color: #ff6a13;
+$action-color-hover: #ff7c30;
+$transition-time: 125ms;
+// $action-color: #f4762d;
+
+// * type colors
+$grass: rgb(120, 182, 99);  // #7c5;
+$poison: rgb(154, 92, 198);
+$fire: rgb(273, 131, 62);
+$flying: #89f;
+$water: #39f;
+$bug: rgb(148, 176, 72);
+$normal: rgba(159, 162, 169);
+$dark: rgb(89, 85, 100);
+$electric: #fc3;
+$psychic: rgb(245, 82, 147);
+$ice: rgb(126, 203, 250);
+$steel: rgb(146, 146, 163); 
+$fairy: #e9e;
+$fighting: rgb(193, 76, 101);
+$rock: rgb(158, 136, 99); 
+$ground: rgb(191, 94, 49);
+$ghost: #66b;
+$dragon: rgb(100, 82, 216); // rgb(0, 99, 183);
+// $grass: #7c5;
+// $poison: #a59;
+// $fire: #f42;
+// $flying: #89f;
+// $water: #39f;
+// $bug: #ab2;
+// $normal: #aa9;
+// $dark: #754;
+// $electric: #fc3;
+// $psychic: #f59;
+// $ice: #6cf;
+// $steel: #aab; 
+// $fairy: #e9e;
+// $fighting: #b54;
+// $rock: #ba6;
+// $ground: #db5;
+// $ghost: #66b;
+// $dragon: #76e;
+
+
+// $grass-card: rgba(119, 204, 85, 0.85);
+// $poison-card: rgba(170, 85, 153, 0.85);
+// $fire-card: rgba(255, 68, 34, 0.85);
+// $flying-card: rgba(136, 153, 255, 0.85);
+// $water-card: rgba(51, 153, 255, 0.85);
+// $bug-card: rgba(170, 187, 34, 0.85);
+// $normal-card: rgba(170, 170, 153, 0.85);
+// $dark-card: rgba(119, 85, 68, 0.85);
+// $electric-card: rgba(255, 204, 51, 0.85);
+// $psychic-card: rgba(255, 85, 153, 0.85);
+// $ice-card: rgba(102, 204, 255, 0.85);
+// $steel-card: rgba(170, 170, 187, 0.85); 
+// $fairy-card: rgba(238, 153, 238, 0.85);
+// $fighting-card: rgba(187, 85, 68, 0.85);
+// $rock-card: rgba(187, 170, 102, 0.85);
+// $ground-card: rgba(221, 187, 85, 0.85);
+// $ghost-card: rgba(102, 102, 187, 0.85);
+// $dragon-card: rgba(120, 102, 237, 0.85);
+
+// $grass-card: rgb(156, 211, 127);
+$grass-card: rgb(150, 188, 143);
+$poison-card: rgb(174, 115, 180);
+$fire-card: rgb(243, 170, 101);
+$flying-card: rgb(165, 175, 231);
+$water-card: rgb(107, 171, 240);
+$bug-card: rgb(156, 211, 127);
+$normal-card: rgb(180, 181, 183);
+$dark-card: rgb(134, 134, 140);
+$electric-card: rgb(236 203 105);
+$psychic-card: rgb(255, 132, 136);
+$ice-card:  rgb(138, 190, 222);//rgb(141, 201, 223);
+$steel-card: #aab; 
+$fairy-card: rgb(218, 178, 210);
+$fighting-card: rgb(218 86 114);
+$rock-card: rgb(185, 165, 136);
+$ground-card: rgb(233 138 92);
+$ghost-card: rgb(123, 123, 177);
+$dragon-card: rgb(128, 123, 222); //rgb(105, 150, 189); 
+
+
+$bg-colors: (
+  grass-card: rgb(150, 188, 143),
+  poison-card: rgb(174, 115, 180),
+  fire-card: rgb(243, 170, 101),
+  flying-card: rgb(165, 175, 231),
+  water-card: rgb(107, 171, 240),
+  bug-card: rgb(156, 211, 127),
+  normal-card: rgb(180, 181, 183),
+  dark-card: rgb(134, 134, 140),
+  electric-card: rgb(236, 203, 105),
+  psychic-card: rgb(255, 132, 136),
+  ice-card: rgb(138, 190, 222),
+  steel-card: #aab,
+  fairy-card: rgb(218, 178, 210),
+  fighting-card: rgb(218, 86, 114),
+  rock-card: rgb(185, 165, 136),
+  ground-card: rgb(233, 138, 92),
+  ghost-card: rgb(123, 123, 177),
+  dragon-card: rgb(128, 123, 222)
+);
+
+
+// * original colors
+// $normal: '#A8A77A';
+// $fire: '#EE8130';
+// $water: '#6390F0';
+// $electric: '#F7D02C';
+// $grass: '#7AC74C';
+// $ice: '#96D9D6';
+// $fighting: '#C22E28';
+// $poison: '#A33EA1';
+// $ground: '#E2BF65';
+// $flying: '#A98FF3';
+// $psychic: '#F95587';
+// $bug: '#A6B91A';
+// $rock: '#B6A136';
+// $ghost: '#735797';
+// $dragon: '#6F35FC';
+// $dark: '#705746';
+// $steel: '#B7B7CE';
+// $fairy: '#D685AD';

@@ -1,0 +1,36 @@
+@import 'variables.scss';
+
+.cardContainer {
+  position: relative;
+  margin-top: 2em;
+  margin-bottom: 5em;
+  margin-inline: 10%;
+  border-radius: 0.5em;
+  // border: 2px solid black;
+  color: rgb(128, 128, 128);    
+}
+
+.imgInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+  padding: 4em 3em;
+}
+
+.name {
+  font-size: 1.7rem;
+}
+
+
+//* component classes
+.textBody {
+  // display: flex;
+  // flex-wrap: wrap;
+  // border-radius: 0.5em 0.5em 0 0;
+  padding: 1em 1em;
+  background: rgb(255, 255, 255);
+  // & > * {
+  //   width: 50%;
+  // }
+}

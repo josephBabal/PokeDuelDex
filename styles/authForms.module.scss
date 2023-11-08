@@ -1,0 +1,48 @@
+@import 'variables.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    min-width: 28ch;
+    font-size: 1.1rem;
+    .inputContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    input {
+        border: none;
+        outline: 1px solid #ddd;
+        padding: 0.5em;
+        margin-bottom: 0.25em;
+        font-size: 1.1rem;
+        &.outline-red {
+            color: $invalidRed;
+        }
+    }
+    .btn_container {
+        display: flex;
+        justify-content: center;
+        margin-top: 1em;
+
+        button {
+            // width: max-content;
+            padding: 0.5em 3em;
+            margin-bottom: 1em;
+            background: $action-color;
+            color: white;
+            border: none;
+            border-radius: $pill-radius;
+            cursor: pointer;
+            font-size: $fs-1p2;
+            transition: $transition-time;
+
+            &:hover {
+                background: $action-color-hover;
+            }
+        } 
+    }
+}
+

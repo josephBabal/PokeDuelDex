@@ -1,0 +1,7 @@
+@import 'variables.scss';
+
+@each $card, $color in $bg-colors {
+  .#{$card} {
+    background: $color;
+  }
+}

@@ -1,0 +1,551 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  // max-width: 100vw;
+  // overflow-x: hidden;
+}
+
+body {
+  // padding-inline: 0.5em;
+  background: rgb(245, 245, 245);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section {
+  height: 100vh;
+}
+
+// .invalid-red {
+//   opacity: 1;
+//   color: $invalidRed;
+// }
+
+// * pokemonDisplay
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2.5em;
+}
+
+.searchbar {
+  padding: 0.5em 2em 0.5em 0.5em;
+  font-size: 1.2rem;
+  border: 1px solid #7e7d7d;
+  border-radius: 500px;
+  background: none;
+  &.error {
+    border: 1px solid $invalidRed !important;
+    outline: 1px solid $invalidRed !important;
+  }
+}
+
+.search-list {
+  display: grid;
+  place-items: center;
+  padding: 1em;
+  // border: 1px solid #ddd;
+}
+
+.card-container {
+  // display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5em;
+  margin-block: 2em;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.pokemon-img-width {
+  width: $pokemon-img-small;
+}
+
+.pokemon-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 325px;
+  padding: 1em;
+  // border: $card-border;
+  background: white;
+  border-radius: 0.25em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: 100ms ease-in-out;
+  &:hover,
+  &:active {
+    box-shadow: rgba(0, 0, 0, 0.26) 0px 0px 5px 1px;
+  }
+}
+
+
+.bg-primary-grass {
+  background: $grass;
+}
+.bg-primary-fire {
+  background: $fire;
+}
+.bg-primary-water {
+  background: $water;
+}
+.bg-primary-normal {
+  background: $normal;
+}
+.bg-primary-electric {
+  background: $electric;
+}
+.bg-primary-ground {
+  background: $ground;
+}
+.bg-primary-bug {
+  background: $bug;
+}
+.bg-primary-rock {
+  background: $rock;
+}
+.bg-primary-steel {
+  background: $steel;
+}
+.bg-primary-poison {
+  background: $poison;
+}
+.bg-primary-flying {
+  background: $flying;
+}
+.bg-primary-psychic {
+  background: $psychic;
+}
+.bg-primary-fighting {
+  background: $fighting;
+}
+.bg-primary-ice {
+  background: $ice;
+}
+.bg-primary-ghost {
+  background: $ghost;
+}
+.bg-primary-dark {
+  background: $dark;
+}
+.bg-primary-dragon {
+  background: $dragon;
+}
+.bg-primary-fairy {
+  background: $fairy;
+}
+
+
+//* secondary bg color
+.bg-secondary-grass {
+  background: $grass-card;
+}
+.bg-secondary-fire {
+  background: $fire-card;
+}
+.bg-secondary-water {
+  background: $water-card;
+}
+.bg-secondary-normal {
+  background: $normal-card;
+}
+.bg-secondary-electric {
+  background: $electric-card;
+}
+.bg-secondary-ground {
+  background: $ground-card;
+}
+.bg-secondary-bug {
+  background: $bug-card;
+}
+.bg-secondary-rock {
+  background: $rock-card;
+}
+.bg-secondary-steel {
+  background: $steel-card;
+}
+.bg-secondary-poison {
+  background: $poison-card;
+}
+.bg-secondary-flying {
+  background: $flying-card;
+}
+.bg-secondary-psychic {
+  background: $psychic-card;
+}
+.bg-secondary-fighting {
+  background: $fighting-card;
+}
+.bg-secondary-ice {
+  background: $ice-card;
+}
+.bg-secondary-ghost {
+  background: $ghost-card;
+}
+.bg-secondary-dark {
+  background: $dark-card;
+}
+.bg-secondary-dragon {
+  background: $dragon-card;
+}
+.bg-secondary-fairy {
+  background: $fairy-card;
+}
+
+
+
+
+
+
+
+.poke-id {
+  font-size: 0.9rem;
+  // color:  	#909090;
+}
+
+.type-container {
+  display: flex;
+  // flex-wrap: wrap;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fill, minmax(50px, 75px));
+  gap: 0.5em;
+  margin-top: 0.8em;
+  font-size: 0.8rem;
+  text-align: center;
+  & > * {
+    width: 9ch;
+  }
+}
+
+.type-icon {
+  padding: 0.35em 0.5em;
+  border-radius: 0.25em;
+  color: white;
+  &.type-grass {
+    background: $grass;
+  }
+  &.type-fire {
+    background: $fire;
+  }
+  &.type-water {
+    background: $water;
+  }
+  &.type-normal {
+    background: $normal;
+  }
+  &.type-electric {
+    background: $electric;
+  }
+  &.type-ground {
+    background: $ground;
+  }
+  &.type-bug {
+    background: $bug;
+  }
+  &.type-rock {
+    background: $rock;
+  }
+  &.type-steel {
+    background: $steel;
+  }
+  &.type-poison {
+    background: $poison;
+  }
+  &.type-flying {
+    background: $flying;
+  }
+  &.type-psychic {
+    background: $psychic;
+  }
+  &.type-fighting {
+    background: $fighting;
+  }
+  &.type-ice {
+    background: $ice;
+  }
+  &.type-ghost {
+    background: $ghost;
+  }
+  &.type-dark {
+    background: $dark;
+  }
+  &.type-dragon {
+    background: $dragon;
+  }
+  &.type-fairy {
+    background: $fairy;
+  }
+}
+
+//* font color
+.font-color-grass {
+  color: $grass;
+}
+.font-color-fire {
+  color: $fire;
+}
+.font-color-water {
+  color: $water;
+}
+.font-color-normal {
+  color: $normal;
+}
+.font-color-electric {
+  color: $electric;
+}
+.font-color-ground {
+  color: $ground;
+}
+.font-color-bug {
+  color: $bug;
+}
+.font-color-rock {
+  color: $rock;
+}
+.font-color-steel {
+  color: $steel;
+}
+.font-color-poison {
+  color: $poison;
+}
+.font-color-flying {
+  color: $flying;
+}
+.font-color-psychic {
+  color: $psychic;
+}
+.font-color-fighting {
+  color: $fighting;
+}
+.font-color-ice {
+  color: $ice;
+}
+.font-color-ghost {
+  color: $ghost;
+}
+.font-color-dark {
+  color: $dark;
+}
+.font-color-dragon {
+  color: $dragon;
+}
+.font-color-fairy {
+  color: $fairy;
+}
+
+
+
+// * auth forms
+.authBg {
+  // background: rgba(81, 170, 195, 0.703);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // transform: translateY(-50px);
+}
+
+
+// * invalid stuff 
+.outline-red {
+  outline: 0.1px solid $invalidRed !important;
+}
+
+.text-red {
+  color: $invalidRed;
+}
+
+.br-p5 {
+  border-radius: 0.5em 0.5em 0 0;
+}
+
+.opacity-0 {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.invalid-red {
+  color: $invalidRed;
+}
+
+// * helper classes
+.bolder {
+  font-weight: 600;
+}
+
+.font-color-white {
+  color: rgb(253, 253, 253);
+}
+
+.opacity-1 {
+  opacity: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.pt-1 {
+  padding-top: 0.5em;
+}
+
+
+.pt-2 {
+  padding-top: 1em;
+}
+
+.pb-1 {
+  padding-bottom: 0.5em;
+}
+
+
+.pb-2 {
+  padding-bottom: 1em;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.mt-1 {
+  margin-top: 0.5em;
+}
+
+
+.mt-2 {
+  margin-top: 1em;
+}
+
+.mb-1 {
+  margin-bottom: 0.5em;
+}
+
+
+.mb-2 {
+  margin-bottom: 1em;
+}
+
+
+.me-5 {
+  margin-inline: 0 2em;
+}
+
+.basic-btn {
+  cursor: pointer;
+}
+
+// .outline_btn {
+//   border-radius: 500px;
+//   width: 200px;
+//   padding: 0.5em 1em;
+//   background: $action-color;
+//   cursor: pointer;
+// }
+
+// * button
+
+.outline_btn_pill {
+  display: flex;
+  align-items: center;
+  border-radius: 500px;
+  padding: 0 1em;
+  background: $action-color;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.outline_btn_square_bg {
+  border: 1px solid black;
+  padding: 0.5em 1em;
+  background: $action-color;
+  border: none;
+  color: $primary-btn-txt;
+  transition: 150ms ease-in-out;
+  cursor: pointer;
+  
+  &:hover {
+    background: $action-color-hover;
+  }
+}
+
+.outline_btn_square {
+  border: 1px solid black;
+  padding: 0.5em 1em;
+  transition: 150ms ease-in-out;
+  cursor: pointer;
+  
+  &:hover {
+    // border-color: $primary-btn-bg;
+    // background: $action-color;
+    // color: $primary-btn-txt;
+  }
+}
+
+// * flex
+
+.flex {
+  display: flex;
+  gap: 1em;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.gap_1 {
+  gap: 5em;
+}
+
+// * link
+
+.link-underline {
+  color: $action-color;
+  // text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
+} 
+
+
+@media (min-width: 840px) {
+  body {
+    // padding-inline: 3rem;
+  }
+  .card-container {
+    grid-template-columns: repeat(3, 0.25fr);
+  }
+
+  .pokemon-img-width {
+    width: $pokemon-img-big;
+  }
+}
+
