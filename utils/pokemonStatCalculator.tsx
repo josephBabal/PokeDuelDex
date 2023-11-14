@@ -1,13 +1,22 @@
+
+// for HP: (level/100)*((basestat*2)+IV+EV/4)+level+10
+// for everything else: [(level/100)*((basestat*2)+IV+EV/4)+5]*nature
+
+// rounded down of course
+
+// for the maximum stat, nature=1.1, EV=255(or 252), and IV=31
+// for the minimum stat, nature=0.9, EV=0, and IV=0
+
 // Helper functions for calculating individual stats
 const calculateHpMinMax = (baseStat: number, name: string) => {
   const max = Math.floor(baseStat * 2 + 204);
-  const min = Math.floor(0.01 * (2 * baseStat * 100) + 100 + 10);
+  const min = Math.floor(2 * baseStat + 110);
   return { name, max, min };
 };
   
 const calculateMinMaxStat = (baseStat: number, name: string) => {
   const max = Math.floor((baseStat * 2 + 99) * 1.1);
-  const min = Math.floor(0.01 * (2 * baseStat) * 100 + 5);
+  const min = Math.floor(((2 * baseStat) + 5) * 0.9);
   return { name, max, min };
 };
   

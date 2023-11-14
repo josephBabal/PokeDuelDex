@@ -1,4 +1,4 @@
-
+@import 'variables.scss';
 
 .categoryHeading {
   margin-block: 1em;
@@ -10,7 +10,6 @@
 .flexData {
   display: flex;
   flex-direction: column;
-  // margin-inline: 0.5em;
   gap: 1em;
 }
 
@@ -18,7 +17,7 @@
   display: grid;
   grid-template-columns: 0.8fr 1fr;
   gap: 2em;
-  max-width: 400px;
+  max-width: $max-width-card;
 
   & > :first-child {
     color: rgb(80, 80, 80);

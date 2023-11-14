@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from 'react'
 import styles from '@/styles/pokeCardInfo.module.scss'
 import usePokemonInfo from '@/hooks/usePokemonInfo'
 import usePokemonSpecies from '@/hooks/usePokemonSpecies'
@@ -11,12 +12,10 @@ type PokemonProps = {
 }
 
 const PokeCardInfo = ({pokemonName}: PokemonProps) => {
+  const [category, setCateogry] = useState<string>("about")
   
-  console.log("input", pokemonName)
-  // const [pokemon, setPokemon] = useState<any>()
   const pokemon  = usePokemonInfo(pokemonName)
   const species = usePokemonSpecies(pokemonName)
-
 
   console.log("== pokeInfo", pokemon)
   console.log("== species: ", species)
@@ -24,39 +23,62 @@ const PokeCardInfo = ({pokemonName}: PokemonProps) => {
   return (
     <>
     {pokemon && species &&
-    <div className={styles.cardContainer}>
+      <div className={styles.cardContainer}>
+        <div className={`${styles.imgInfo} br-p5 bg-secondary-${pokemon.types[0].type.name}` }> 
+          <div>
+            <img className="pokemon-img-width" loading="lazy" src={pokemon.sprites.other['official-artwork'].front_default } alt={`${pokemonName} sprite`} /> 
+          </div>
 
-    <div className={`${styles.imgInfo} br-p5 bg-secondary-${pokemon.types[0].type.name}` }> 
-      <div>
-        <img className="pokemon-img-width" loading="lazy" src={pokemon.sprites.other['official-artwork'].front_default } alt={`${pokemonName} sprite`} /> 
-      </div>
-
-      <div >
-        <div className="poke-id"> #{pokemon.id.toString().padStart(4, '0')} </div>
-        <div className={`bolder font-color-white ${styles.name}`}> {pokemonName[0].toUpperCase() + pokemonName.slice(1) }</div>
-        <div className="type-container">
-          <p className={`type-icon type-${pokemon.types[0].type.name}`}> { pokemon.types[0].type.name.toUpperCase() } </p>
-            {pokemon.types.length > 1 && <p className={`type-icon type-${pokemon.types[1].type.name}`}> {pokemon.types[1].type.name.toUpperCase() } </p> }
+          <div>
+            <div className="poke-id"> #{pokemon.id.toString().padStart(4, '0')} </div>
+            <div className={`bolder font-color-white ${styles.name}`}> {pokemonName[0].toUpperCase() + pokemonName.slice(1) }</div>
+            <div className="type-container">
+              <p className={`type-icon type-${pokemon.types[0].type.name}`}> { pokemon.types[0].type.name.toUpperCase() } </p>
+                {pokemon.types.length > 1 && <p className={`type-icon type-${pokemon.types[1].type.name}`}> {pokemon.types[1].type.name.toUpperCase() } </p> }
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
     
-   
-     {/* {pokemon.stats.map((stats: any,) => (
-        <div key={stats.stat.name}> {stats.stat.name} {stats.base_stat} </div>
-      ))} */}
+  
+        <div className={styles.textBody}>
+          <div className={styles.selectorContainer}>
+            <p 
+              className={`
+                ${styles.categoryName} 
+                ${styles.about}
+                ${category === "about" && styles.active
+              }`}
+              onClick={() => {
+                setCateogry("about")
+              }}> 
+              About 
+            </p>
 
-    {/* <div> type: {pokemon.types[0].type.name} </div> */}
-      <div className={styles.textBody}>
+            <p 
+              className={`
+                ${styles.categoryName} 
+                ${styles.stats}
+                ${category === "stats" && styles.active
+              }`}
+              onClick={() => {
+                setCateogry("stats")
+              }}> 
+                Stats 
+            </p>
+        </div>
+          
         
-      
-        <div>
-          <About pokemon={pokemon} species={species} />
-        </div>
+        {category === "about" && 
+          <div>
+            <About pokemon={pokemon} species={species} />
+          </div>
+        } 
 
-        <div>
-          <Stats pokemon={pokemon} />
-        </div>
+        {category === "stats" && 
+          <div>
+            <Stats pokemon={pokemon} />
+          </div>
+        }
       </div>
     </div>
     

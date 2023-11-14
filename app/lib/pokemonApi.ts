@@ -3,19 +3,16 @@ const POKEMON_API = "https://pokeapi.co/api/v2/";
 
 //* getPokemonList -> Get the first 1010 pokemon 
 export async function getPokemonList() {
-  // const response = await fetch(POKEMON_API + "pokemon?limit=1&offset=0");
-  // const response = await fetch(POKEMON_API + "pokemon?limit=151&offset=0");
-
   const response = await fetch(POKEMON_API + "pokemon?limit=1010&offset=0");
 
   const data = await response.json();
-  // console.log("== data", data)
+
   return data.results;
+
 }
 
 //* getPokemon -> given a string "pikachu", get the information of pikachu
 export async function getPokemon(name: string) {
-  // pokemon/ditto
   try {
     const response = await fetch(POKEMON_API + "pokemon/" + name);
     
@@ -35,16 +32,15 @@ export async function getPokemon(name: string) {
       // Other error cases
       console.error('Error fetching data:', error.message);
     }
-    throw error; // Re-throw the error to maintain consistent error propagation      
+    throw error; 
   }
 }
 
 
 
 
-//* getPokemonSpecies -> given a string "pikachu", get the information of pikachu
+//* getPokemonSpecies -> given a string "pikachu", get the species information of pikachu
 export async function getPokemonSpecies(name: string) {
-  // pokemon/ditto
   try {
     const response = await fetch(POKEMON_API + "pokemon-species/" + name);
     
@@ -64,6 +60,6 @@ export async function getPokemonSpecies(name: string) {
       // Other error cases
       console.error('Error fetching data:', error.message);
     }
-    throw error; // Re-throw the error to maintain consistent error propagation      
+    throw error; 
   }
 }

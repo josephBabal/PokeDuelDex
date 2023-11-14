@@ -23,34 +23,37 @@ const Stats = ({pokemon}: any) => {
         }
         console.log("== styleBar", styleBar)
         return (
-        
           <div className={styles.statWrap} key={idx}>
-            <div className={styles.statName} style={statNameStyle}> {stat.name} </div>
-            <div className={styles.base}> {pokemon.stats[idx].base_stat}  </div>
+            <p className={styles.statName} style={statNameStyle}> {stat.name} </p>
+            <p className={styles.base}> {pokemon.stats[idx].base_stat}  </p>
             <div className={styles.skillBar} >
               <div className={`${styles.skillPer} bg-primary-${pokemon.types[0].type.name}`} style={styleBar} >
 
               </div>
             </div>
-            <div className={styles.min}> {stat.min}</div>
-            <div className={styles.max}> {stat.max}</div>
+            <div className={styles.minMaxWrap}>
+              <p className={styles.min}> {stat.min}</p>
+              <p className={styles.max}> {stat.max}</p>
+            </div>
           </div>
         )})
       }
 
       <div className={styles.statWrap}>
-        <div className={styles.statName} style={statNameStyle}> Total </div>
-        <div className={styles.total}> {totalBaseStats} </div>
+        <p className={styles.statName} style={statNameStyle}> Total </p>
+        <p className={styles.total}> {totalBaseStats} </p>
         <div className={styles.skillBar}></div>
-        <div className={styles.minTotal}> min </div>
-        <div className={styles.maxTotal}> max </div>
+        <p className={styles.minTotal}> min </p>
+        <p className={styles.maxTotal}> max </p>
       </div>
-      {/* <div> {pokemon.stats[0].stat.name}: {pokemon.stats[0].base_stat} {hpStat.min} {hpStat.max} </div>
-      <div> {pokemon.stats[1].stat.name}: {pokemon.stats[1].base_stat} {atkStat.min} {maxAtk} </div>
-      <div> {pokemon.stats[2].stat.name}: {pokemon.stats[2].base_stat} </div>
-      <div> {pokemon.stats[3].stat.name}: {pokemon.stats[3].base_stat} </div>
-      <div> {pokemon.stats[4].stat.name}: {pokemon.stats[4].base_stat} {min} </div>
-      <div> {pokemon.stats[5].stat.name}: {pokemon.stats[5].base_stat} </div>   */}
+    
+      <div>
+        <p className={styles.statDescription}> 
+          The ranges shown on the right are for a level 100 Pokémon. 
+          Maximum values are based on a beneficial nature, 252 EVs, 31 IVs; 
+          minimum values are based on a hindering nature, 0 EVs, 0 IVs.
+        </p>
+      </div>
     </div>
   )
 }

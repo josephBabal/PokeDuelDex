@@ -22,7 +22,14 @@ const About = ({pokemon, species}: any) => {
         <p> Abilities </p>
         <div>
           {pokemon.abilities.map((item:any, idx: any) => 
-            <p className={`${styles.mb1} ${item.is_hidden && styles.hiddenAbility}`}> {item.ability.name[0].toUpperCase() + item.ability.name.slice(1)} {item.is_hidden && <>(hidden ability)</>}</p>
+            <p 
+              key={item.ability.name}
+              className={`
+                ${styles.mb1} 
+                ${item.is_hidden && styles.hiddenAbility
+              }`}> 
+                {item.ability.name[0].toUpperCase() + item.ability.name.slice(1)} {item.is_hidden && <>(hidden ability)</>}
+            </p>
           )}
         </div>
       </div>

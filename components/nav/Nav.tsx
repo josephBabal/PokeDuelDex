@@ -49,15 +49,14 @@ const Nav = () => {
     {!hideNav && (
     <nav className={styles.nav}>
       <Link href="/">
-         {/* <Image src="/assets/images/logo.png" alt="logo" width={250} height={200}/> */}
-        <h2> Pokemon </h2>
+        <h2> PokeDuelDex </h2>
       </Link>
 
       {/* Desktop Navigation */}
-      <div className={styles.desktop}>
+      {/* <div className={styles.desktop}>
       {isLoggedIn ? (
         <div className={`${styles.container}`}>
-          {/* <Link href="/" className="outline_btn_pill me-5"> Create Recipe </Link> */}
+          <Link href="/" className="outline_btn_pill me-5"> Duel </Link>
           <div className={styles.icon} onClick={() => setToggleDropdown(!toggleDropdown)}>
             {toggleDropdown ? <VscChromeClose /> : <VscAccount />}
           </div>
@@ -71,19 +70,15 @@ const Nav = () => {
         </div>
       ) : (
         <div className={styles.container}>
-          {/* <div className={styles.icon} onClick={() => setToggleDropdown(!toggleDropdown)}>
-            {toggleDropdown ? <VscChromeClose /> : <VscMenu />}
-          </div> */}
-
-            <Link href="/signup" className="outline_btn_square"> Sign up  </Link>
-            <Link href="/login" className="outline_btn_square_bg" onClick={closeDropdown}> Login </Link>
+          <Link href="/signup" className="outline_btn_square"> Sign up  </Link>
+          <Link href="/login" className="outline_btn_square_bg" onClick={closeDropdown}> Login </Link>
 
         </div>
       )}
-      </div>
+      </div> */}
 
       {/* mobile Navigation */}
-      <div className={styles.mobile}>
+      {/* <div className={styles.mobile}>
       {isLoggedIn ? (
         <div className={`${styles.container}`}>
           <div className={styles.icon} onClick={() => setToggleDropdown(!toggleDropdown)}>
@@ -92,7 +87,7 @@ const Nav = () => {
           {toggleDropdown && (
             <div className={styles.dropdown}>
               <Link href="/" className={styles.dropdown_link}> My Profile </Link>
-              {/* <Link href="/" className={styles.dropdown_link}> Create Recipe </Link> */}
+              <Link href="/" className={styles.dropdown_link}> Duel </Link>
               <Link href="/" className={styles.dropdown_link} onClick={handleSignOut}> Sign Out </Link>
             </div>
           )}
@@ -110,7 +105,7 @@ const Nav = () => {
           )}
         </div>
       )}
-      </div>
+      </div> */}
     
     </nav> )}
     </>

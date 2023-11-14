@@ -18,13 +18,14 @@ const PokemonDisplay = ({pokemonList}: any) => {
 
 
   const handleFilter = (list: []) => {
-    return list.filter((pokemon: any) => pokemon.name.toLowerCase().includes(searchInput.toLowerCase()))
+    return list.filter((pokemon: any) => pokemon && pokemon.name.toLowerCase().includes(searchInput.toLowerCase()))
   }
 
   const filteredPokemonList = useMemo(() => {
     return handleFilter(pokemonList)
+    // return handleFilter(pokemonInfoList)
   }, [pokemonList, searchInput])
-  // console.log("== filtered", filteredPokemonList)
+  console.log("== filtered", filteredPokemonList)
 
 
   const handleSearchInput = (e: any) => {

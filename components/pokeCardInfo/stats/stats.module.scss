@@ -1,23 +1,24 @@
+@import 'variables.scss';
+
 .container {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  .statDescription {
+    max-width: $max-width-card;
+    font-size: 0.8rem;
+  }
 }
 .statWrap {
   display: flex;
   align-items: center;
-  justify-content: center;
-  // grid-template-columns: 0.25fr 0.25fr 1fr 0.25fr 0.25fr;
   gap: 0.2em;
-  max-width: 400px;
+  max-width: $max-width-card;
   .statName {
     // max-width: max-content;
     color: rgb(80, 80, 80);
     font-weight: bolder;
     font-size: 0.9rem;
-    // margin-right: 0.5em;
-    // border: 1px solid red;
-    // min-width: 12ch;
   }
   
   .skillBar {
@@ -26,14 +27,25 @@
       border-radius: 0.5em;
       height: 0.25em;
       margin-left: 1em;
-      // background: red;
-      // width: 20%;
-      // border: 2px solid red;
     }
   }
 
+  .minMaxWrap {
+    display: flex;
+    text-align: center;
+    & > * {
+      width: 3ch;
+    }
+  }
+
+  .min, 
   .max {
     // margin-left: 0.5em;
+    text-align: end;
+  }
+
+  .max {
+    margin-left: 0.5em;
   }
 
   .minTotal,
@@ -42,5 +54,6 @@
     color: rgb(80, 80, 80);
     font-weight: bolder;
     font-size: 0.8rem;
+    text-align: end;
   }
 }

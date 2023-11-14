@@ -4,6 +4,7 @@ import styles from './page.module.scss'
 import useStore from '@/zustand/store'
 import PokemonDisplay from '@/components/pokemonDisplay/PokemonDisplay'
 import { getPokemonList } from './lib/pokemonApi'
+import usePokemonInfoList from '@/hooks/usePokemonInfoList'
 import { useEffect, useState } from 'react'
 const Home = async() => {
   // const { userEmail } = useStore()
@@ -17,11 +18,13 @@ const Home = async() => {
   //   getList()
   // }, [])
   const pokemonList = await getPokemonList()
-
+  // console.log(" home list", pokemonList)
 
   return (
     <section className="section">
-      <PokemonDisplay pokemonList={pokemonList} />
+      <PokemonDisplay 
+        pokemonList={pokemonList} 
+      />
     </section>
   )
 }
