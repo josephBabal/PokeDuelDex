@@ -18,6 +18,8 @@ battle predictor feature will be added soon.
 This project allows users to explore detailed information and stats about various Pokémon. Additionally, a battle predictor feature will be added soon to enhance your Pokémon experience.
 </h4>
 
+<h2> This project is deployed <a href="https://poke-duel-dex.vercel.app/" title="poke-duel-dex"> here </a> </h2>
+
 <h2> GETTING STARTED </h2>
 
 <h3> How to run the project locally </h3>
