@@ -1,11 +1,8 @@
 import React from 'react'
 import styles from './about.module.scss'
 const About = ({pokemon, species}: any) => {
-  // const numAbilities = pokemon.abilities.length;
-  // const feet = Math.floor(pokemon.height * 0.3281); // 
   const feet = Math.round(pokemon.height / 10 * 3.28)
   const inches = Math.round(pokemon.height / 10 * 3.3 % 28)
-  // const inches = Math.round((pokemon.height / 10 * 3.28) % 12); // 1 foot = 12 inches
 
   const type = pokemon.types[0].type.name
 

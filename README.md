@@ -21,10 +21,22 @@ This project allows users to explore detailed information and stats about variou
 
 <h3> How to run the project locally </h3>
 
-<p>1. Clone the repository </p>
+<h3>1. Clone the repository </h3>
 
 ```
-git clone https://github.com/your-username/pokemon-fight-predictor.git
+git clone https://github.com/your-username/PokeDuelDex.git
 
-cd pokemon-fight-predictor
+cd PokeDuelDex
+```
+
+<h3> 2. Install the dependencies</h3>
+```
+cd PokeDuelDex
+npm install
+```
+
+<h3> 3. Run the project </h3>
+```
+cd PokeDuelDex
+npm run dev
 ```
