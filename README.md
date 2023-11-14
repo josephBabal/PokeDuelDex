@@ -25,7 +25,6 @@ This project allows users to explore detailed information and stats about variou
 
 ```
 git clone https://github.com/your-username/PokeDuelDex.git
-
 cd PokeDuelDex
 ```
 
@@ -33,7 +32,6 @@ cd PokeDuelDex
 
 ```
 cd PokeDuelDex
-
 npm install
 ```
 
