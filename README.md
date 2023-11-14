@@ -30,12 +30,16 @@ cd PokeDuelDex
 ```
 
 <h3> 2. Install the dependencies</h3>
+
 ```
 cd PokeDuelDex
+
 npm install
 ```
 
+
 <h3> 3. Run the project </h3>
+
 ```
 cd PokeDuelDex
 npm run dev
