@@ -10,6 +10,32 @@
   color: rgb(128, 128, 128);   
 }
 
+.btnWrap {
+  position: fixed;
+  top: 105px;
+  left: 170px;
+  height: 3em;
+  aspect-ratio: 1/1;
+  background: none;
+  border: none;
+  transition: 125ms ease-in-out;
+
+  &:hover {
+    background: rgb(120, 120, 120);
+    border-radius: 10em;
+    cursor: pointer;
+  }
+
+  .backBtn {
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    z-index: 1;
+    transform: translate(-1px, 1px);
+  }
+}
+
+
+
 .imgInfo {
   display: flex;
   justify-content: center;

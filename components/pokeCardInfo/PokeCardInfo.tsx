@@ -6,12 +6,17 @@ import usePokemonInfo from '@/hooks/usePokemonInfo'
 import usePokemonSpecies from '@/hooks/usePokemonSpecies'
 import About from './about/About'
 import Stats from './stats/Stats'
+import { VscChevronLeft } from "react-icons/vsc";
+import { IoChevronBackOutline } from "react-icons/io5";
+import { useRouter } from 'next/navigation'
+
 
 type PokemonProps = {
   pokemonName: string
 }
 
 const PokeCardInfo = ({pokemonName}: PokemonProps) => {
+  const router = useRouter()
   const [category, setCateogry] = useState<string>("about")
   
   const pokemon  = usePokemonInfo(pokemonName)
@@ -24,6 +29,15 @@ const PokeCardInfo = ({pokemonName}: PokemonProps) => {
     <>
     {pokemon && species &&
       <div className={styles.cardContainer}>
+        <button className={styles.btnWrap}>
+          <IoChevronBackOutline 
+            className={styles.backBtn} 
+            onClick={() => (
+              router.push('/')
+            )}
+          />
+        </button>
+
         <div className={`${styles.imgInfo} br-p5 bg-secondary-${pokemon.types[0].type.name}` }> 
           <div>
             <img className="pokemon-img-width" loading="lazy" src={pokemon.sprites.other['official-artwork'].front_default } alt={`${pokemonName} sprite`} /> 
