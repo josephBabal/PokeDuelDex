@@ -11,19 +11,19 @@
 }
 
 .btnWrap {
-  position: fixed;
-  top: 105px;
-  left: 170px;
+  position: absolute;
+  top: 2.5%;
+  left: 5%;
   height: 3em;
   aspect-ratio: 1/1;
   background: none;
   border: none;
+  cursor: pointer;
   transition: 125ms ease-in-out;
 
   &:hover {
-    background: rgb(120, 120, 120);
+    background: $hover-bg;
     border-radius: 10em;
-    cursor: pointer;
   }
 
   .backBtn {
@@ -88,13 +88,14 @@
         font-weight: bolder;
         color: rgb(255, 255, 255);
       }
-      &:hover, 
-      &:active {
+
+      &:active,
+      &:hover {
         // border-bottom: 3px solid rgb(255, 255, 255); 
         color: rgb(255, 255, 255);
 
         // *test
-        background: rgb(150, 150, 150);
+        background: $hover-bg;
       }
     }
   }

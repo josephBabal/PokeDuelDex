@@ -1,5 +1,3 @@
-$primary-color: white;
-$text-color: blue;
 
 $primary-red: #F61414;
 
@@ -8,19 +6,19 @@ $primary-btn-txt: white;
 
 $signupBg: linear-gradient(360deg, hsla(206, 66%, 58%, 1) 2%, hsla(172, 100%, 50%, 1) 98%);
 
-// * invalid
+//* invalid
 $invalidRed: #cc0000;
 
 $max-width-card: 600px;
 
-// * font-size
+//* font-size
 $fs-1p: 1.0rem;
 $fs-1p1: 1.1rem;
 $fs-1p2: 1.2rem;
 $fs-1p3: 1.3rem;
 
-
-// $pokemon-img-big: 100px;
+//* pokemon image
+//$pokemon-img-big: 100px;
 $pokemon-img-big: 120px;
 $pokemon-img-small: 100px;
 
@@ -37,7 +35,10 @@ $card-border: 1px solid #bdbdbd;
 $action-color: #ff6a13;
 $action-color-hover: #ff7c30;
 $transition-time: 125ms;
-// $action-color: #f4762d;
+
+
+// *hover
+$hover-bg: rgb(120, 120, 120);
 
 // * type colors
 $grass: rgb(120, 182, 99);  // #7c5;
