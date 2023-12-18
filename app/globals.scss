@@ -32,6 +32,11 @@ section {
 //   color: $invalidRed;
 // }
 
+.loading {
+  font-size: 1rem;
+  text-align: center;
+}
+
 // * pokemonDisplay
 
 .search-container {
@@ -42,7 +47,7 @@ section {
 }
 
 .searchbar {
-  padding: 0.5em 2em 0.5em 0.5em;
+  padding: 0.5em 2em 0.5em 1em;
   font-size: 1.2rem;
   border: 1px solid #7e7d7d;
   border-radius: 500px;

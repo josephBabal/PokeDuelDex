@@ -1,18 +1,30 @@
 import React from 'react'
 import styles from './about.module.scss'
-const About = ({pokemon, species}: any) => {
+
+
+import { Pokemon, PokemonSpecies, Ability } from '@/types/types'
+
+type AboutProps = {
+  pokemon: Pokemon
+  species: PokemonSpecies
+}
+
+const About = ({pokemon, species}: AboutProps ) => {
   const feet = Math.round(pokemon.height / 10 * 3.28)
   const inches = Math.round(pokemon.height / 10 * 3.3 % 28)
 
-  const type = pokemon.types[0].type.name
-
   const categoryHeadingClass = `${styles.categoryHeading} font-color-${pokemon.types[0].type.name}`
 
+  const englishFlavorTxt = species.flavor_text_entries.find((item: any) => (
+    item.language.name === "en" && item.flavor_text
+  ))
+
+
   return (
-    <>
+    <div>
     {pokemon && species && 
     <div className={styles.flexData}>
-      <p> {species.flavor_text_entries[0].flavor_text}</p>
+      <p> { englishFlavorTxt && englishFlavorTxt.flavor_text }</p>
 
       <h4 className={categoryHeadingClass}> Pokedex Data</h4>  
       <div className={styles.categoryWrap}> 
@@ -31,7 +43,6 @@ const About = ({pokemon, species}: any) => {
         </div>
       </div>
 
-   
 
       <div className={styles.categoryWrap}>
         <p> Height </p>
@@ -66,7 +77,7 @@ const About = ({pokemon, species}: any) => {
 
     </div>
     }
-    </>
+    </div>
   )
 }
 

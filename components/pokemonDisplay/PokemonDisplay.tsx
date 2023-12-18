@@ -1,80 +1,93 @@
 "use client"
 
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useEffect  } from 'react'
 import PokemonCard from '../pokemonCard/PokemonCard'
-import { getPokemon } from '@/app/lib/pokemonApi'
-type PokemonProps = {
-  pokemonList: any
+import { PokemonName } from '@/types/types'
+import Search from '@/components/search/Search'
+import Loading from '@/app/loading'
+
+
+type PokemonListProp = {
+  name: string;
 }
 
+const PokemonDisplay = ( ) => {
+  const [pokemonList, setPokemonList] = useState<PokemonName[]>([]);
+  const [offset, setOffset] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const limit = 9
 
-const PokemonDisplay = ({pokemonList}: any) => {
-  console.log("== props", pokemonList)
-  const [searchInput, setSearchInput] = useState("")
-  // const [searchedPokemon, setSearchedPokemon] = useState<any>()
+  const fetchData = async () => {
+    if (offset >= 1010) {
+      return;
+    }
+  
+    setIsLoading(true);
+
+    const controller = new AbortController();
+    const signal = controller.signal;
 
 
-  // const [isPokemon, setIsPokemon] = useState(true)
-
-
-  const handleFilter = (list: []) => {
-    return list.filter((pokemon: any) => pokemon && pokemon.name.toLowerCase().includes(searchInput.toLowerCase()))
+    try {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`, 
+        { signal }
+      );
+      const data = await response.json();
+      setPokemonList((prevList: PokemonName[]) => [...prevList, ...data.results]);
+      setOffset(prevOffset => prevOffset + limit);
+    } catch (error: any) {
+      if (error.name === 'AbortError') {
+        console.log('Fetch aborted');
+      } else {
+        setError(error.message);
+      }
+    } finally {
+      setIsLoading(false);
+    }
   }
 
-  const filteredPokemonList = useMemo(() => {
-    return handleFilter(pokemonList)
-    // return handleFilter(pokemonInfoList)
-  }, [pokemonList, searchInput])
-  console.log("== filtered", filteredPokemonList)
+  const handleScroll = () => {
+    if (window.innerHeight + document.documentElement.scrollTop < document.documentElement.offsetHeight || isLoading) {
+      return;
+    }
+    fetchData();
+  };
+  
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isLoading]);
 
 
-  const handleSearchInput = (e: any) => {
-    setSearchInput(e.target.value)
-  }
+
+  //* fetch data when component first mounts
+  useEffect(() => {  
+    fetchData();
+  }, []);
 
 
 
-  // const handleSubmit = async (e: any) => {
-  //   e.preventDefault
 
-  //   if (searchInput.length < 1) {
-  //     setIsPokemon(false);
-  //     return
-  //   }
 
-  //   console.log("== handle sumbit")
+  const handleSearch = (term: any) => {
+    setSearchQuery(term);
+  };
 
-  //   try {
-  //     let searchedItem = searchInput.replace(/ /g, "-").toLowerCase()
-  //     console.log("== searchedItem", searchedItem)
-  //     let url = `https://pokeapi.co/api/v2/pokemon/${searchedItem}`
-  //     // let url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${searchedItem}`
-  //     const response = await fetch(url)
+  // Filter the PokemonList based on the search term
 
-  //     if (!response.ok) {
-  //       console.error(`HTTP error! Status: ${response.status}`);
-  //       setIsPokemon(false)
-  //       return;
-  //     }
+  const uniqueList = pokemonList.filter(( pokemon, index, self ) => 
+    index === self.findIndex((p) => p.name === pokemon.name)
+  );
 
-  //     const res = await response.json();
-  //     // if (res.meals) {
-  //     //   console.log("meals", res.meals);
-  //     // }
-  //     console.log("== res", res);
-  //     setSearchedPokemon(res)
-  //   } catch (error: any) {
-  //     console.error(error.message);
-  //     return;
-  //   }
-  // }
+  const filteredPokemonList = uniqueList.filter((pokemon: any) =>
+  pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())
+);
 
-  // const handleKeyDown = (e: any) => {
-  //   if (e.key === 'Enter') {
-  //     handleSubmit(e)
-  //     // setSearchedPokemon(async () => (await getPokemon(searchInput)))
-  //   }
-  // }
+  console.log("==pokemonList", pokemonList)
+
+  console.log("== query", searchQuery)
 
 
 
@@ -85,20 +98,13 @@ const PokemonDisplay = ({pokemonList}: any) => {
       <h1 className="text-center">  </h1>
       <h2 className="text-center">  </h2>
 
-      <div className="search-container">
-        <input
-          // className={`searchbar ${!isPokemon && "error"}`}
-          className={`searchbar`}
-          name="search"
-          placeholder="Search for pokemon"
-          onChange={handleSearchInput}
-          // onKeyDown={handleKeyDown}
+      <Search 
+        handleSearch={handleSearch} 
+      />
 
-        />
-      </div>
 
       <div className="card-container">
-        {filteredPokemonList.map((pokemon: any) => (
+        {filteredPokemonList.map(( pokemon: PokemonListProp ) => (
           <PokemonCard 
             pokemonName={pokemon.name} 
             key={pokemon.name}
@@ -106,18 +112,8 @@ const PokemonDisplay = ({pokemonList}: any) => {
         ))}
       </div>
 
-
-      {/* {searchedPokemon && (
-        <div className="search-list">
-          <PokemonCard 
-            pokemon={searchedPokemon}
-            key={searchedPokemon.name}
-          />  
-        </div>
-        )} */}
-
-      {/* {!isPokemon && <div className="text-red text-center"> Pokemon not found </div>} */}
-
+      {isLoading && <Loading />}
+      {error && <p>Error: {error}</p>}
 
     </div>
   )

@@ -10,17 +10,24 @@ import { VscChevronLeft } from "react-icons/vsc";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { useRouter } from 'next/navigation'
 
+import { Pokemon, PokemonSpecies } from '@/types/types'
 
 type PokemonProps = {
   pokemonName: string
+}
+
+type InfoProps = {
+  pokemon: Pokemon,
+  isLoading: boolean,
+  error: any
 }
 
 const PokeCardInfo = ({pokemonName}: PokemonProps) => {
   const router = useRouter()
   const [category, setCateogry] = useState<string>("about")
   
-  const pokemon  = usePokemonInfo(pokemonName)
-  const species = usePokemonSpecies(pokemonName)
+  const {pokemon, isLoading, error}: InfoProps  = usePokemonInfo(pokemonName)
+  const species: PokemonSpecies = usePokemonSpecies(pokemonName)
 
   console.log("== pokeInfo", pokemon)
   console.log("== species: ", species)
@@ -84,13 +91,18 @@ const PokeCardInfo = ({pokemonName}: PokemonProps) => {
         
         {category === "about" && 
           <div>
-            <About pokemon={pokemon} species={species} />
+            <About 
+              pokemon={pokemon} 
+              species={species} 
+            />
           </div>
         } 
 
         {category === "stats" && 
           <div>
-            <Stats pokemon={pokemon} />
+            <Stats 
+              pokemon={pokemon} 
+            />
           </div>
         }
       </div>
