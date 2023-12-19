@@ -1,5 +1,5 @@
 import './globals.scss'
-import type { Metadata } from 'next'
+// import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Nav from '@/components/nav/Nav'
 const inter = Inter({ subsets: ['latin'] })
@@ -22,14 +22,14 @@ export default function RootLayout({
 }) {
   return (
       <html lang="en">
-        <Head> 
+        <head> 
           <title> {metadata.title} </title>
           <meta
             name="description"
             content={metadata.description} 
             key="desc"
           />
-        </Head>
+        </head>
         <body className={inter.className}>
           <main>
 

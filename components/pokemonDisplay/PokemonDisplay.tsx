@@ -5,19 +5,22 @@ import PokemonCard from '../pokemonCard/PokemonCard'
 import { PokemonName } from '@/types/types'
 import Search from '@/components/search/Search'
 import Loading from '@/app/loading'
+import { getPokemonList } from '@/app/lib/pokemonApi'
 
 
 type PokemonListProp = {
   name: string;
 }
 
-const PokemonDisplay = ( ) => {
+const PokemonDisplay = () => {
   const [pokemonList, setPokemonList] = useState<PokemonName[]>([]);
   const [offset, setOffset] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const limit = 9
+
+  const [pokemonSearchList, setPokemonSearchList] = useState<PokemonName[]>([]);
 
   const fetchData = async () => {
     if (offset >= 1010) {
@@ -61,10 +64,20 @@ const PokemonDisplay = ( ) => {
   }, [isLoading]);
 
 
+  const fetchPokemonList = async () => {
+    try {
+      setPokemonSearchList(await getPokemonList())
+    } catch (error: any) {
+      setError(error.message)
+    }
+  }
+
+
 
   //* fetch data when component first mounts
   useEffect(() => {  
     fetchData();
+    fetchPokemonList()
   }, []);
 
 
@@ -82,8 +95,12 @@ const PokemonDisplay = ( ) => {
   );
 
   const filteredPokemonList = uniqueList.filter((pokemon: any) =>
-  pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())
-);
+    pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const filteredSearchList = pokemonSearchList.filter((pokemon: any) =>
+    pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   console.log("==pokemonList", pokemonList)
 
@@ -95,21 +112,27 @@ const PokemonDisplay = ( ) => {
 
   return (
     <div>
-      <h1 className="text-center">  </h1>
-      <h2 className="text-center">  </h2>
-
       <Search 
         handleSearch={handleSearch} 
       />
 
 
       <div className="card-container">
-        {filteredPokemonList.map(( pokemon: PokemonListProp ) => (
-          <PokemonCard 
-            pokemonName={pokemon.name} 
-            key={pokemon.name}
-          />
-        ))}
+        {filteredPokemonList.length > 0 ? (
+          filteredPokemonList.map((pokemon: PokemonListProp) => (
+            <PokemonCard 
+              pokemonName={pokemon.name} 
+              key={pokemon.name}
+            />
+          ))
+        ) : (
+          filteredSearchList.map((pokemon: PokemonListProp) => (
+            <PokemonCard 
+              pokemonName={pokemon.name} 
+              key={pokemon.name}
+            />
+          ))
+        )}
       </div>
 
       {isLoading && <Loading />}

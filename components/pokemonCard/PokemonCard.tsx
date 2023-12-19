@@ -23,27 +23,31 @@ const { pokemon, isLoading, error }: InfoProps = usePokemon(pokemonName)
 
   return (
   <>
-  {isLoading && <Loading />}
   {pokemon &&
   <Link href={pokemonName} className={`pokemon-card bg-secondary-${pokemon.types[0].type.name}`}>
+    {isLoading ? ( <Loading />  
+    ) : (
     <div>
-      <p className="poke-id"> #{pokemon.id.toString().padStart(4, '0')} </p>
-      <p className="bolder mt-1 font-color-white"> {pokemonName[0].toUpperCase() + pokemonName.slice(1)} </p>
+      <div>
+        <p className="poke-id"> #{pokemon.id.toString().padStart(4, '0')} </p>
+        <p className="bolder mt-1 font-color-white"> {pokemonName[0].toUpperCase() + pokemonName.slice(1)} </p>
 
-      <div className="type-container">
-        <p className={`type-icon type-${pokemon.types[0].type.name}`}> { pokemon.types[0].type.name.toUpperCase() } </p>
-        {pokemon.types.length > 1 && <p className={`type-icon type-${pokemon.types[1].type.name}`}> {pokemon.types[1].type.name.toUpperCase() } </p> }
+        <div className="type-container">
+          <p className={`type-icon type-${pokemon.types[0].type.name}`}> { pokemon.types[0].type.name.toUpperCase() } </p>
+          {pokemon.types.length > 1 && <p className={`type-icon type-${pokemon.types[1].type.name}`}> {pokemon.types[1].type.name.toUpperCase() } </p> }
+        </div>
+      </div>
+
+      <div> {pokemon && 
+        <img 
+          className="pokemon-img-width" 
+          loading="lazy" 
+          src={pokemon.sprites.other['official-artwork'].front_default} 
+          alt={`${pokemonName} sprite`}
+        />} 
       </div>
     </div>
-
-    <div> {pokemon && 
-      <img 
-        className="pokemon-img-width" 
-        loading="lazy" 
-        src={pokemon.sprites.other['official-artwork'].front_default} 
-        alt={`${pokemonName} sprite`}
-      />} 
-    </div>
+    )}
 
   </Link>
   }
