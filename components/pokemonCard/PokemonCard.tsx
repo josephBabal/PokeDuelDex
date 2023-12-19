@@ -27,7 +27,7 @@ const { pokemon, isLoading, error }: InfoProps = usePokemon(pokemonName)
   <Link href={pokemonName} className={`pokemon-card bg-secondary-${pokemon.types[0].type.name}`}>
     {isLoading ? ( <Loading />  
     ) : (
-    <div>
+    <>
       <div>
         <p className="poke-id"> #{pokemon.id.toString().padStart(4, '0')} </p>
         <p className="bolder mt-1 font-color-white"> {pokemonName[0].toUpperCase() + pokemonName.slice(1)} </p>
@@ -46,7 +46,7 @@ const { pokemon, isLoading, error }: InfoProps = usePokemon(pokemonName)
           alt={`${pokemonName} sprite`}
         />} 
       </div>
-    </div>
+    </>
     )}
 
   </Link>
